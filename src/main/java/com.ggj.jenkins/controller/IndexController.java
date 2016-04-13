@@ -1,6 +1,7 @@
 package com.ggj.jenkins.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(Model model) throws InterruptedException {
-        model.addAttribute("time", new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"));
+        model.addAttribute("time", new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()).toString());
         return "index";
     }
 }
